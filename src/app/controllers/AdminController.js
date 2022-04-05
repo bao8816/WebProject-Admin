@@ -1,4 +1,5 @@
 const products = require('../models/Product');
+const Admin_account=require('../models/Admin_account');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
 class AdminController {    
@@ -31,10 +32,10 @@ class AdminController {
     signupr(req, res, next){
         var regExp = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
         if (regExp.test(req.body.email) && (req.body.password == req.body.rpassword)) {
-            Customer_account.find({email: req.body.email})
+            Admin_account.find({email: req.body.email})
                 .then(data => {
                     if (data[0] == undefined){
-                        const account=new Customer_account(req.body);
+                        const account=new Admin_account(req.body);
                         account.save()
                             .then(()=> res.redirect('/'))
                             .catch(error=>{
@@ -52,7 +53,7 @@ class AdminController {
     loginr(req, res, next){
         var regExp = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
         if (regExp.test(req.body.email)) {
-            Customer_account.find({email: req.body.email})
+            Admin_account.find({email: req.body.email})
                 .then(data => {
                     if (data[0]!=undefined){
                         if(data[0].email==req.body.email && data[0].password==req.body.password){
