@@ -21,6 +21,10 @@ class AdminController {
     signup(req, res) {
         res.render('signup', {layout: 'iden-layout'})
     };
+    //GET "/editclient"
+    edit(req,res){
+        res.render('dashboard-customer',{layout:'dashboardcustomer-layout'})
+    }
 };
 
 module.exports = new AdminController;
