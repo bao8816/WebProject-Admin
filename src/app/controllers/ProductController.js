@@ -38,14 +38,12 @@ class ProductController {
             description: req.body.description,
             image: req.body.image,
             price: req.body.price,
-            slug: req.body.name.String.toLowerCase()
         });
         product.save()
             .then(() => {
-                res.redirect('/');
+                res.redirect('/product');
             })
             .catch(next);
-        console.log(typeof(req.body.name));
     }
 };
 
