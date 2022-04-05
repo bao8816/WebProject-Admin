@@ -92,6 +92,10 @@ section {
   gap: 1rem;
 }
 
+.header .navbar {
+  margin-right: 3%;
+}
+
 .header .icons {
   font-size: 2.5rem;
   cursor: pointer;
@@ -235,52 +239,6 @@ section {
 
 .service .box p {
   font-size: 1.5rem;
-  line-height: 2;
-  color: #aaa;
-}
-
-.menu .box-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
-  gap: 2rem;
-}
-
-.menu .box-container .box {
-  text-align: center;
-}
-
-.menu .box-container .box:hover img {
-  -webkit-transform: translateY(1rem);
-          transform: translateY(1rem);
-}
-
-.menu .box-container .box img {
-  height: 25rem;
-}
-
-.menu .box-container .box .content {
-  padding: 1rem 0;
-}
-
-.menu .box-container .box .content .stars {
-  margin-bottom: 2rem;
-}
-
-.menu .box-container .box .content .stars i {
-  font-size: 1.7rem;
-  color: #eacf4f;
-}
-
-.menu .box-container .box .content h3 {
-  font-size: 2rem;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.menu .box-container .box .content .price {
-  font-size: 2rem;
   line-height: 2;
   color: #aaa;
 }
@@ -684,12 +642,13 @@ section {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
-  .header .navbar.active {
+  .header .navbar .active {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   .header .navbar a {
     display: block;
+    // object-position: center;
     margin: 3rem 2rem;
   }
   .header .navbar .space {

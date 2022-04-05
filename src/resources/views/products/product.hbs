@@ -6,19 +6,14 @@
    <div id="search-btn" class="fas fa-search icons"></div>
 
    <nav class="navbar">
-      {{!-- <a href="/">home</a>
-      <a href="#menu">product</a>
-      <a href="#about">about</a>
+      <a href="/product/upload-page">upload</a>
       <span class="space"></span>
       <a href="#reviews">reviews</a>
-      <a href="#contact">contact</a>
-      <a href="#blogs">blogs</a> --}}
-      <a href="/product/upload-page">upload</a>
    </nav>
 
-   {{!-- <a href="#" class="fas fa-shopping-cart icons"></a> --}}
+   <a href="#" class="fas fa-user icons"></a>
 
-   {{!-- <a href="/" class="logo"><img src="images/logo.png" alt=""></a> --}}
+   <a href="/" class="logo"><img src="images/logo.png" alt=""></a>
 
    <form action="" class="search-form">
       <input type="search" name="" placeholder="search here..." id="search-box">
@@ -61,7 +56,9 @@
             
             <div class="price">${{this.price}}</div>
             <p>{{this.description}}</p>
-            <a href="#" class="btn">edit</a>
+            <a href="/product/{{this.slug}}" class="btn">edit</a>
+
+            <buttons type="submit" class="btn">delete</buttons>
          </div>
       </div>
       {{/each}}
@@ -69,6 +66,13 @@
    </div>
 
 </section>
+
+
+<!-- product section ends  -->
+
+
+
+
 
 <!-- product section ends -->
 
@@ -166,3 +170,4 @@
 </section>
 
 <!-- footer section ends -->
+

@@ -1,10 +1,7 @@
 const Product = require('../models/Product');
 const { multipleMongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 const { clearConfigCache } = require('prettier');
-
-function toLowerCase(String) {
-    return String.toLowerCase();
-}
 
 class ProductController {
     //GET "/product"
@@ -30,6 +27,27 @@ class ProductController {
         });
     }
 
+    //GET "/[update-page]"
+    show_update(req, res, next) {
+        Product.findOne({slug: req.params.slug})
+            .then(product => {
+                res.render('products/update', {
+                    layout: 'upload-layout',
+                    product: mongooseToObject(product)
+                });
+            })
+            .catch(next);
+    }
+
+    //POST "/[update]:slug"
+    update(req, res, next) {
+        Product.findOneAndUpdate({slug: req.params.slug}, req.body, {new: true})
+            .then(product => {
+                res.redirect('/product');
+            })
+            .catch(next);
+    }
+
     //POST "/upload"
     upload(req, res, next) {
 
@@ -38,14 +56,22 @@ class ProductController {
             description: req.body.description,
             image: req.body.image,
             price: req.body.price,
-            slug: req.body.name.String.toLowerCase()
         });
         product.save()
             .then(() => {
-                res.redirect('/');
+                res.redirect('/product');
             })
             .catch(next);
-        console.log(typeof(req.body.name));
+    }
+
+    //DELETE 
+    delete(req, res, next) {
+        Product.deleteOne({_id: req.body.id})
+            .then(() => {
+                res.redirect('/product');
+            }
+            )
+            .catch(next);
     }
 };
 
