@@ -37,11 +37,7 @@
   "dependencies": {
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
-<<<<<<< Updated upstream
     "mongoose": "^6.2.9",
-=======
-    "node-sass": "^7.0.1",
->>>>>>> Stashed changes
     "sass": "^1.49.10"
   },
   "devDependencies": {

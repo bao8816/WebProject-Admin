@@ -6,7 +6,7 @@
    <div id="search-btn" class="fas fa-search icons"></div>
 
    <nav class="navbar">
-      <a href="#home">home</a>
+      <a href="/product">product</a>
       <span class="space"></span>
       <a href="#contact">contact</a>
 
@@ -31,12 +31,12 @@
 
 <section class="product" id="product-upload">
     <div class="content">
-        <form action="">
-            <input data-aos="fade-up" data-aos-delay="150" type="text" placeholder="product's name" class="box">
-            <textarea data-aos="fade-up" data-aos-delay="300" name="" class="box" placeholder="product's description" id="" cols="30" rows="10"></textarea>
-            <input data-aos="fade-up" data-aos-delay="450" type="text" placeholder="product's image" class="box">
-            <input data-aos="fade-up" data-aos-delay="600" type="number" placeholder="price" class="box">
-            <input data-aos="fade-up" data-aos-delay="750" type="submit" value="upload" class="btn">
+        <form action="/product/upload" method="POST">
+            <input data-aos="fade-up" data-aos-delay="150" id="name" name="name" type="text" placeholder="product's name" class="box">
+            <input data-aos="fade-up" data-aos-delay="300" id="description" name="description" type="text" class="box" placeholder="product's description">
+            <input data-aos="fade-up" data-aos-delay="450" id="image" name="image" type="text" placeholder="product's image" class="box">
+            <input data-aos="fade-up" data-aos-delay="600" id="price" name="price" type="text" placeholder="price" class="box">
+            <button data-aos="fade-up" data-aos-delay="300" type="submit" class="btn">upload</button>
          </form>
     </div>
 </section>
@@ -49,7 +49,7 @@
 <section class="footer">
 
    <div class="links">
-      <a href="#home" class="btn">home</a>
+      <a href="/product">product</a>
       <a href="#contact" class="btn">contact</a>
    </div>
 

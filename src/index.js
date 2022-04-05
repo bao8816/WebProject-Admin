@@ -12,7 +12,7 @@ const db = require('./config/db');
 //Connect to Database
 db.connect();
 
-const port = 3000;
+const port = 2000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({

@@ -173,9 +173,9 @@ section {
 }
 
 .product {
-  margin-top: 7rem;
+  margin-top: 15rem;
   background: url(../images/home-bg.png) no-repeat;
-  background-size: contain;
+  background-size: 70% 100%;
   background-position: center;
 }
 
