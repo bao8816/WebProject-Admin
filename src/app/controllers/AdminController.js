@@ -23,7 +23,7 @@ class AdminController {
     };
     //GET "/editclient"
     edit(req,res){
-        res.render('dashboard-customer',{layout:'dashboardcustomer-layout'})
+        res.render('dashboard-customer', {layout:'dashboardcustomer-layout'})
     }
 };
 

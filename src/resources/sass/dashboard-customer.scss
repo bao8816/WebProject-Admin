@@ -118,7 +118,7 @@
     margin-top: 89px;
     padding: 2rem 1.5rem;
     background: #f0f0f0;
-    min-height: calc(100vh-90px);
+    min-height: calc(100vh - 90px);
 }
 .cards {
     display: grid;
@@ -261,7 +261,7 @@ td .status{
         margin-left: 70px;
     }
     .main-content header1{
-        width: calc(100%-70px);
+        width: calc(100% - 70px);
         left: 70px;
     }
 }
