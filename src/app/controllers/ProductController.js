@@ -3,6 +3,8 @@ const { multipleMongooseToObject } = require('../../util/mongoose');
 const { mongooseToObject } = require('../../util/mongoose');
 const { clearConfigCache } = require('prettier');
 
+// url: /product
+
 class ProductController {
     //GET "/product"
     show(req, res, next) {
@@ -39,10 +41,10 @@ class ProductController {
             .catch(next);
     }
 
-    //POST "/[update]:slug"
+    //PUT "/:id"
     update(req, res, next) {
-        Product.findOneAndUpdate({slug: req.params.slug}, req.body, {new: true})
-            .then(product => {
+        Product.updateOne({_id: req.params.id}, req.body)
+            .then(() => {
                 res.redirect('/product');
             })
             .catch(next);
@@ -64,11 +66,11 @@ class ProductController {
             .catch(next);
     }
 
-    //DELETE 
+    //[DELETE] "/:id" 
     delete(req, res, next) {
-        Product.deleteOne({_id: req.body.id})
+        Product.deleteOne({_id: req.params.id})
             .then(() => {
-                res.redirect('/product');
+                res.redirect('back');
             }
             )
             .catch(next);

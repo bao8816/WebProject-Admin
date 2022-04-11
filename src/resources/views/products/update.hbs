@@ -32,12 +32,12 @@
 <section class="product" id="product-upload">
     <div class="content">
        <h1>Update {{product.name}}</h1>
-        <form action="/product/{{product.slug}}" method="POST">
+        <form action="/product/{{product._id}}?_method=PUT" method="POST">
             <input data-aos="fade-up" data-aos-delay="150" value="{{product.name}}" id="name" name="name" type="text" placeholder="Change from [{{product.name}}] to ..." class="box">
             <input data-aos="fade-up" data-aos-delay="300" value="{{product.description}}" id="description" name="description" type="text" class="box" placeholder="Change from [{{product.description}}] to ...">
             <input data-aos="fade-up" data-aos-delay="450" value="{{product.image}}" id="image" name="image" type="text" placeholder="Change from [{{product.image}}] to ..." class="box">
             <input data-aos="fade-up" data-aos-delay="600" value="{{product.price}}" id="price" name="price" type="text" placeholder="Change from [{{product.price}}] to ..." class="box">
-            <button data-aos="fade-up" data-aos-delay="300" type="submit" class="btn">update</button>
+            <button data-aos="fade-up" data-aos-delay="300" type="submit" class="btn">Update</button>
          </form>
     </div>
 </section>

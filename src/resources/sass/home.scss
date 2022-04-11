@@ -13,6 +13,23 @@
   transition: all .2s linear;
 }
 
+html a {
+  text-decoration: none;
+}
+
+html .modal .btn {
+  color: white;
+  text-decoration: dashed;
+}
+
+html .modal .btn-primary {
+  background-color: red;
+}
+
+html .modal .btn-secondary {
+  background-color: grey;
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
