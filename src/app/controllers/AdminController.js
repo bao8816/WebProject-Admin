@@ -27,7 +27,10 @@ class AdminController {
     show_customer(req,res){
         res.render('dashboard-customer', {layout:'dashboardcustomer-layout'})
     }
-
+    // GET "Profile"
+    oder_list(req,res){
+        res.render('oder',{layout:'dashboardcustomer-layout'})
+    }
     //POST "/signup"
     signupr(req, res, next){
         var regExp = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
