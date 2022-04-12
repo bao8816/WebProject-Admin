@@ -37,7 +37,11 @@
   "dependencies": {
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
+<<<<<<< Updated upstream
     "method-override": "^3.0.0",
+=======
+    "express-load": "^1.1.16",
+>>>>>>> Stashed changes
     "mongoose": "^6.2.9",
     "mongoose-slug-generator": "^1.0.4",
     "sass": "^1.50.0"
