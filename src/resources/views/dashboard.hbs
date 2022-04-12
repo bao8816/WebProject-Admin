@@ -48,11 +48,16 @@
                     </div>
     
                     <div class="user-wrapper">
-                        <img src="images/19127322.jpg" width="40px" height="40px" alt="">
+                        {{#if user}}
+                        <a href="/profile" class="las la-user" style="font-size: 2.5rem;"></a>
                         <div>
-                            <h4>Trung Tín </h4>
-                            <small>Super admin</small>
+                            <h4> Tins </h4>
+                            <a href="/logout">Log out</a>
                         </div>
+                        
+                        {{else}}
+                        <a href="/login" class="las la-user" style="font-size: 2.5rem;"></a>
+                        {{/if}}
                     </div>
                 </div>
                

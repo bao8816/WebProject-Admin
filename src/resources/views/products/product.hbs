@@ -11,8 +11,15 @@
       <a href="#reviews">reviews</a>
    </nav>
 
-   <a href="#" class="fas fa-user icons"></a>
+   <div class="user-wrapper">
+      <a href="/login" class="fas fa-user icons"></a>
 
+      {{!-- {{#if user}}
+      <a href="/profile" class="fas fa-user-icons"></a>
+      {{else}}
+      <a href="/login" class="fas fa-user icons"></a>
+      {{/if}} --}}
+   </div>
    <a href="/" class="logo"><img src="images/logo.png" alt=""></a>
 
    <form action="" class="search-form">
