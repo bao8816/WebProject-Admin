@@ -5,23 +5,32 @@
             <div class ="sidebar-menu">
                 <ul>
                     <li>
-                        <a href=""class="active"><span class =" las la-igloo"></span>
+                        <a href="/"><span class =" las la-igloo"></span>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     
                     <li>
-                        <a href=""class="active2"><span class =" las la-users"></span>
+                        <a href="/dashboard-customer" class="active"><span class =" las la-users"></span>
                             <span>Customers</span>
                         </a>
-                    </li><li>
-                        <a href=""><span class =" las la-hamburger"></span>
-                            <span>Oders</span>
+                    </li>
+                    
+                    <li>
+                        <a href="/order"><span class =" las la-hamburger"></span>
+                            <span>Orders</span>
                         </a>
                     </li>
+                    
                     <li>
-                        <a href=""><span class =" las la-user-circle"></span>
+                        <a href="/profile"><span class =" las la-user-circle"></span>
                             <span>Profile</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/product"><span class =" las la-braille"></span>
+                            <span>Products</span>
                         </a>
                     </li>
                 </ul>
@@ -34,7 +43,7 @@
                         <label for="">
                             <span class ="las la bars"></span>
                         </label>
-                        Customers List
+                        Dashboard 
                     </h2>
     
                     <div class="search-wrapper">
@@ -43,15 +52,22 @@
                     </div>
     
                     <div class="user-wrapper">
-                        <img src="C:\Users\ACER\Downloads\BT03\19127322\19127322-Image\19127322.jpg" width="40px" height="40px" alt="">
+                        {{#if user}}
+                        <a href="/profile" class="las la-user" style="font-size: 2.5rem;"></a>
                         <div>
-                            <h4>Trung Tín </h4>
-                            <small>Super admin</small>
+                            <h4> Tins </h4>
+                            <a href="/logout">Log out</a>
                         </div>
+                        
+                        {{else}}
+                        <a href="/login" class="las la-user" style="font-size: 2.5rem;"></a>
+                        {{/if}}
                     </div>
                 </div>
                
+            </header>
             
+            <main>
                 <div class="recent-flex">
                     <div class="project">
                         <div class="card">

@@ -1,7 +1,7 @@
 * {box-sizing: border-box}
 
 /* Full-width input fields */
-  input[type=text], input[type=password] {
+input[type=email], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -10,8 +10,9 @@
   color: white;
   background: black;
 }
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+input[type=email]:focus, input[type=password]:focus {
+  background-color: white;
+  color: black;
   outline: none;
 }
 
@@ -36,31 +37,31 @@ button:hover {
   opacity:1;
 }
 
-/* Extra styles for the cancel button */
-.login9, .login {
+.login-btn, .login {
   padding: 14px 20px;
   
 }
-.cancelbtn {
+.container-btn {
   width: auto;
   padding: 10px 18px;
   background-color: black;
   border:1px solid white;
 }
-/* Float cancel and signup buttons and add an equal width */
-.login, .signupbtn {
-  float: left;
-  border:1px solid white;
-  width: 50%;
-}
-.login9{
+
+// .login, .signup-btn {
+//   float: left;
+//   border:1px solid white;
+//   width: 50%;
+// }
+.login-btn, .signup-btn {
   border: 1px solid #ddd;
   width: 20%;
 }
+
 html{
-  background-color: black;
+  background: url(../images/background.jpg);
 }
-/* Add padding to container elements */
+
 .container {
   padding: 16px;
   color: white;
@@ -74,11 +75,16 @@ html{
   background-position: top;
   position: relative;
 }
-span.psw {
+.heads .container .error {
+  text-decoration: dashed;
+  text-decoration-color: #ddd;
+}
+
+.forgot-pass {
   float: right;
   padding-top: 16px;
 }
-/* Clear floats */
+
 .clearfix::after {
   content: "";
   clear: both;
@@ -86,13 +92,18 @@ span.psw {
   
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
+.to-signup-btn, .to-login-btn {
+  color: black;
+  background-color: white;
+  margin-left: 2%;
+}
+
 @media screen and (max-width: 30px) {
-  .login9, .login, .signupbtn {
+  .login-btn, .login, .signup-btn {
     
     width: 100%;
   }
-  .cancelbtn {
+  .cancel-btn {
     width: 100%;
   }
 }

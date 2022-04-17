@@ -1,3 +1,6 @@
+const Admin_account = require('../models/Admin_account');
+const bcrypt = require('bcryptjs');
+const { multipleMongooseToObject } = require('../../util/mongoose');
 
 class AuthController {
     show_login(req, res) {
@@ -15,7 +18,32 @@ class AuthController {
     }
 
     signup (req, res, next) {
-        
+        const { username, password } = req.body;
+        Admin_account.findOne({ email: username })
+            .then(user => {
+                if (user) {
+                    return res.render('signup', {
+                        layout: 'iden-layout',
+                        error: 'Email đã tồn tại'
+                    })
+                }
+                bcrypt.hash(password, 10, (err, hash) => {
+                    if (err) {
+                        return next(err);
+                    }
+                    const newUser = new Admin_account({
+                        email: username,
+                        password: hash
+                    });
+                    newUser.save()
+                        .then(() => {
+                            res.redirect('/login');
+                        })
+                        .catch(err => {
+                            next(err);
+                        })
+                })
+            })
     }
 }
 

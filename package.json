@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --inspect ./src/index.js",
-    "sass": "sass --watch ./src/resources/sass/home.scss:./src/public/css/home.css ./src/resources/sass/dashboard.scss:./src/public/css/dashboard.css ./src/resources/sass/iden.scss:./src/public/css/iden.css ./src/resources/sass/profile.scss:./src/public/css/profile.css ./src/resources/sass/upload.scss:./src/public/css/upload.css ./src/resources/sass/line-awesome.scss:./src/public/css/line-awesome.css ./src/resources/sass/dashboard-customer.scss:./src/public/css/dashboard-customer.css ./src/resources/sass/oder.scss:./src/public/css/oder.css",
+    "sass": "sass --watch ./src/resources/sass/home.scss:./src/public/css/home.css ./src/resources/sass/dashboard.scss:./src/public/css/dashboard.css ./src/resources/sass/iden.scss:./src/public/css/iden.css ./src/resources/sass/profile.scss:./src/public/css/profile.css ./src/resources/sass/upload.scss:./src/public/css/upload.css ./src/resources/sass/line-awesome.scss:./src/public/css/line-awesome.css ./src/resources/sass/dashboard-customer.scss:./src/public/css/dashboard-customer.css ./src/resources/sass/order.scss:./src/public/css/order.css",
     "prettier": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,6 +35,7 @@
     }
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
     "connect-sqlite3": "^0.9.13",
     "express": "^4.17.3",

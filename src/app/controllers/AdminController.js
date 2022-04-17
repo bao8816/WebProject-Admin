@@ -1,5 +1,4 @@
 const products = require('../models/Product');
-const Admin_account = require('../models/Admin_account');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
 class AdminController {    
@@ -15,7 +14,11 @@ class AdminController {
 
     //GET "/dashboard-customer"
     show_customer(req,res){
-        res.render('dashboard-customer', {layout:'dashboardcustomer-layout'})
+        res.render('dashboard-customer', {layout:'dashboard-layout'})
+    }
+
+    show_order(req,res){
+        res.render('dashboard-order', {layout:'dashboard-layout'})
     }
 };
 
