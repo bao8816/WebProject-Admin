@@ -40,7 +40,7 @@ button:hover {
   opacity: 1;
 }
 
-.login-btn, .login {
+.login-btn, .signup-btn {
   padding: 14px 20px;
 }
 
@@ -76,8 +76,9 @@ html {
 }
 
 .heads .container .error {
-  text-decoration: dashed;
-  text-decoration-color: #ddd;
+  font-size: larger;
+  text-decoration-color: red;
+  text-align: center;
 }
 
 .forgot-pass {

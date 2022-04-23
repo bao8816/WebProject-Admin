@@ -1,59 +1,19 @@
-<!-- header section starts  -->
 
-<header class="header">
+<div class="main-content">
+   <main>
+      
+      <div class="recent-flex">
+         <div class="project">
+            <form action="/product/{{product._id}}?_method=PUT" method="POST">
+               <input value="{{product.name}}" id="name" name="name" type="text" placeholder="Change from [{{product.name}}] to ..." class="box">
+               <input value="{{product.description}}" id="description" name="description" type="text" placeholder="Change from [{{product.description}}] to ..." class="box">
+               <input value="{{product.image}}" id="image" name="image" type="text" placeholder="Change from [{{product.image}}] to ..." class="box">
+               <input value="{{product.price}}" id="price" name="price" type="text" placeholder="Change from [{{product.price}}] to ..." class="box">
+               <button type="submit" class="btn">Update</button>
+            </form>
+         </div>
+      </div>
 
-   <div id="menu-btn" class="fas fa-bars icons"></div>
-   <div id="search-btn" class="fas fa-search icons"></div>
-
-   <nav class="navbar">
-      <a href="/product">product</a>
-      <span class="space"></span>
-      <a href="#contact">contact</a>
-
-   </nav>
-
-   <a href="#" class="fas fa-user icons"></a>
-
-   <a href="#home" class="logo">
-      <img src="images/logo.png" alt="">
-   </a>
-
-   <form action="" class="search-form">
-      <input type="search" name="" placeholder="search here..." id="search-box">
-      <label for="search-box" class="fas fa-search icons"></label>
-   </form>
-
-</header>
-
-<!-- header section ends  -->
-
-<!-- product section starts  -->
-
-<section class="product" id="product-upload">
-    <div class="content">
-       <h1>Update {{product.name}}</h1>
-        <form action="/product/{{product._id}}?_method=PUT" method="POST">
-            <input data-aos="fade-up" data-aos-delay="150" value="{{product.name}}" id="name" name="name" type="text" placeholder="Change from [{{product.name}}] to ..." class="box">
-            <input data-aos="fade-up" data-aos-delay="300" value="{{product.description}}" id="description" name="description" type="text" class="box" placeholder="Change from [{{product.description}}] to ...">
-            <input data-aos="fade-up" data-aos-delay="450" value="{{product.image}}" id="image" name="image" type="text" placeholder="Change from [{{product.image}}] to ..." class="box">
-            <input data-aos="fade-up" data-aos-delay="600" value="{{product.price}}" id="price" name="price" type="text" placeholder="Change from [{{product.price}}] to ..." class="box">
-            <button data-aos="fade-up" data-aos-delay="300" type="submit" class="btn">Update</button>
-         </form>
-    </div>
-</section>
-
-<!-- product section ends -->
-
-
-<!-- footer section starts  -->
-
-<section class="footer">
-
-   <div class="links">
-      <a href="/product" class="btn">product</a>
-      <a href="#contact" class="btn">contact</a>
-   </div>
-
-</section>
-
-<!-- footer section ends -->
+      <img src="/{{product.image}}" alt="">
+   </main>
+</div>

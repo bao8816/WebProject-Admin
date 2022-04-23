@@ -10,6 +10,10 @@ const Product = new Schema({
     image: String,
     price: Number,
     slug: { type: String, slug: 'name', unique: true },
-});
+    },
+    {
+        timestamps: true
+    }
+);
 
 module.exports = mongoose.model('Product', Product);

@@ -1,89 +1,93 @@
-<!-- header section starts  -->
-
-<header class="header">
-
-   <div id="menu-btn" class="fas fa-bars icons"></div>
-   <div id="search-btn" class="fas fa-search icons"></div>
-
-   <nav class="navbar">
-      <a href="/product/upload-page">upload</a>
-      <span class="space"></span>
-      <a href="#reviews">reviews</a>
-   </nav>
-
-   <div class="user-wrapper">
-      <a href="/login" class="fas fa-user icons"></a>
-
-      {{!-- {{#if user}}
-      <a href="/profile" class="fas fa-user-icons"></a>
-      {{else}}
-      <a href="/login" class="fas fa-user icons"></a>
-      {{/if}} --}}
-   </div>
-   <a href="/" class="logo"><img src="images/logo.png" alt=""></a>
-
-   <form action="" class="search-form">
-      <input type="search" name="" placeholder="search here..." id="search-box">
-      <label for="search-box" class="fas fa-search icons"></label>
-   </form>
-
-</header>
-
-<!-- header section ends  -->
-
-<!-- product section starts  -->
-
-<section class="menu" id="menu">
-
-   <div class="heading">
-      {{!-- <img src="images/title-img.png" alt=""> --}}
-      <h3>products</h3>
-   </div>
-
-   <div class="box-container">
+{{!-- {{#each products}}
+   <div class="box" data-aos="fade-up" data-aos-delay="150">
+      <a href="#">
+         <img src="{{this.image}}" alt="">
+      </a>
       
-      {{#each products}}
-      <div class="box" data-aos="fade-up" data-aos-delay="150">
+      <div class="content">
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+         </div>
+
          <a href="#">
-            <img src="{{this.image}}" alt="">
+            <h3 class="product-name">{{this.name}}</h3>
          </a>
          
-         <div class="content">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
+         <div class="price">${{this.price}}</div>
+         <p>{{this.description}}</p>
+         <a href="/product/{{this.slug}}" class="btn">edit</a>
 
-            <a href="#">
-               <h3 class="product-name">{{this.name}}</h3>
-            </a>
-            
-            <div class="price">${{this.price}}</div>
-            <p>{{this.description}}</p>
-            <a href="/product/{{this.slug}}" class="btn">edit</a>
-
-            <buttons type="submit" class="btn" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteProductModal">delete</buttons>
-         </div>
+         <buttons type="submit" class="btn" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteProductModal">delete</buttons>
       </div>
-      {{/each}}
-      
    </div>
+   {{/each}} --}}
 
-</section>
+<div class="main-content">
+    <main>
+        <div class="recent-flex">
+            <div class="project">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Products</h3>
+                        <div>
+                          <button onclick="window.location.href='/product/upload-page'" type="button"> Add Product </button>
+                          <button> See All <span class="las la-arrow-right"></span></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%"> 
+                                <thead> 
+                                    <tr>    
+                                        <td>Name </td>
+                                        <td>Description  </td>
+                                        <td>Price </td>
+                                        <td>Options </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  {{#each products}}
+                                    <tr>
+                                      <td>
+                                        <a href="/product/{{this.slug}}">{{this.name}}</a>
+                                      </td>
+                                      <td>{{this.description}}</td>
+                                      <td>{{this.price}}$</td>
+                                      <td>
+                                        <a href="/product/{{this.slug}}" class="product-opt">edit</a>
+                                        <buttons 
+                                          type="submit" 
+                                          class="product-opt" 
+                                          data-id="{{this._id}}" 
+                                          data-bs-toggle="modal" 
+                                          data-bs-target="#deleteProductModal"
+                                          style="color: red;">
+                                          delete
+                                        </buttons>
+                                      </td>
+                                    </tr>
+                                  {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-
-<!-- product section ends  -->
-
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteProductModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteProductModalLabel" style="font-size: larger;">Warning!!!</h5>
+        <h5 class="modal-title" id="deleteProductModalLabel" style="font-size: larger; color: red;">Warning!!!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" style="font-size: large;">
@@ -91,7 +95,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-delete-product">Delete</button>
+        <button type="button" class="btn btn-primary" id="btn-delete-product" style="color: red;">Delete</button>
       </div>
     </div>
   </div>
@@ -100,117 +104,3 @@
 {{!-- Delete Product hidden form --}}
 
 <form name="delete-product-hidden-form" method="POST"></form>
-
-<!-- service sectioin starts  -->
-
-<section class="service">
-
-   <div class="box" data-aos="fade-up" data-aos-delay="150">
-      <i class="fas fa-hamburger"></i>
-      <h3>best quality</h3>
-      <p>*message*</p>
-   </div>
-
-   <div class="box" data-aos="fade-up" data-aos-delay="300">
-      <i class="fas fa-shipping-fast"></i>
-      <h3>free delivery</h3>
-      <p>*message*</p>
-   </div>
-
-   <div class="box" data-aos="fade-up" data-aos-delay="450">
-      <i class="fas fa-headset"></i>
-      <h3>24/7 support</h3>
-      <p>*message*</p>
-   </div>
-
-</section>
-
-<!-- service sectioin ends -->
-
-<!-- contact section starts  -->
-
-<section class="contact" id="contact">
-
-   <div class="heading">
-      <img src="images/title-img.png" alt="">
-      <h3>contact us</h3>
-   </div>
-
-   <div class="row">
-
-      <div class="form">
-
-         <div class="icons-container">
-
-            <div class="icons" data-aos="fade-up" data-aos-delay="150">
-               <i class="fas fa-map"></i>
-               <h3>address :</h3>
-               <p>*address*</p>
-            </div>
-
-            <div class="icons" data-aos="fade-up" data-aos-delay="300">
-               <i class="fas fa-envelope"></i>
-               <h3>email :</h3>
-               <p>abc@gmail.com</p>
-               <p>xyz@gmail.com</p>
-            </div>
-
-            <div class="icons" data-aos="fade-up" data-aos-delay="450">
-               <i class="fas fa-phone"></i>
-               <h3>phone :</h3>
-               <p>0123456789</p>
-               <p>0905001002</p>
-            </div>
-            
-         </div>
-
-         <form action="">
-            <input data-aos="fade-up" data-aos-delay="150" type="text" placeholder="full name" class="box">
-            <input data-aos="fade-up" data-aos-delay="300" type="email" placeholder="email" class="box">
-            <input data-aos="fade-up" data-aos-delay="450" type="number" placeholder="phone" class="box">
-            <textarea data-aos="fade-up" data-aos-delay="600" name="" placeholder="message" class="box" id="" cols="30" rows="10"></textarea>
-            <input data-aos="fade-up" data-aos-delay="750" type="submit" value="send message" class="btn">
-         </form>
-
-      </div>
-
-   </div>
-
-</section>
-
-<!-- contact section ends -->
-
-
-<!-- footer section starts  -->
-
-<section class="footer">
-
-   <div class="links">
-      <a href="#home" class="btn">home</a>
-      <a href="#contact" class="btn">contact</a>
-   </div>
-
-</section>
-
-<!-- footer section ends -->
-
-<script>
-   var productID
-   var deleteProductModal = document.getElementById('deleteProductModal')
-   var btnDeleteProduct = document.getElementById('btn-delete-product')
-
-   deleteProductModal.addEventListener('show.bs.modal', function (event) {
-      // Button that triggered the modal
-      var button = event.relatedTarget
-      // Extract info from data-bs-* attributes
-      productID = button.getAttribute('data-id')
-   })
-
-   
-   btnDeleteProduct.onclick = function () {
-      var form = document.forms['delete-product-hidden-form']
-      form.action = '/product/' + productID + '?_method=DELETE'
-      form.submit()
-   }
-
-</script>

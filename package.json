@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --inspect ./src/index.js",
-    "sass": "sass --watch ./src/resources/sass/home.scss:./src/public/css/home.css ./src/resources/sass/dashboard.scss:./src/public/css/dashboard.css ./src/resources/sass/iden.scss:./src/public/css/iden.css ./src/resources/sass/profile.scss:./src/public/css/profile.css ./src/resources/sass/upload.scss:./src/public/css/upload.css ./src/resources/sass/line-awesome.scss:./src/public/css/line-awesome.css ./src/resources/sass/dashboard-customer.scss:./src/public/css/dashboard-customer.css ./src/resources/sass/order.scss:./src/public/css/order.css",
+    "sass": "sass --watch ./src/resources/sass/home.scss:./src/public/css/home.css ./src/resources/sass/dashboard.scss:./src/public/css/dashboard.css ./src/resources/sass/iden.scss:./src/public/css/iden.css ./src/resources/sass/profile.scss:./src/public/css/profile.css ./src/resources/sass/line-awesome.scss:./src/public/css/line-awesome.css ./src/resources/sass/dashboard-customer.scss:./src/public/css/dashboard-customer.css ./src/resources/sass/order.scss:./src/public/css/order.css ./src/resources/sass/dashboard-product.scss:./src/public/css/dashboard-product.css ./src/resources/sass/dashboard-profile.scss:./src/public/css/dashboard-profile.css",
     "prettier": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -40,6 +40,7 @@
     "connect-sqlite3": "^0.9.13",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
+    "express-handlebars-sections": "^1.0.1",
     "express-session": "^1.17.2",
     "method-override": "^3.0.0",
     "mongoose": "^6.2.9",

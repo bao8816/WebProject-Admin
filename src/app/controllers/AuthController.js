@@ -24,7 +24,7 @@ class AuthController {
                 if (user) {
                     return res.render('signup', {
                         layout: 'iden-layout',
-                        error: 'Email đã tồn tại'
+                        error: 'Email already exists!'
                     })
                 }
                 bcrypt.hash(password, 10, (err, hash) => {

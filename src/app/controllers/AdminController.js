@@ -8,8 +8,8 @@ class AdminController {
     };
 
     //GET "/profile"
-    profile(req, res) {
-        res.render('profile', {layout: 'profile-layout'})
+    show_profile(req, res) {
+        res.render('profile/profile', {layout: 'profile-layout'})
     };
 
     //GET "/dashboard-customer"

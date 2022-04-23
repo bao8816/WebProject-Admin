@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const session = require('express-session');
+const expressHandlebarsSections = require('express-handlebars-sections');
 
 const MongoStore = require('connect-mongo');
 
@@ -31,7 +32,10 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 app.engine('hbs', exphbs.engine({
-  extname: '.hbs'
+  extname: '.hbs',
+  helpers: {
+    section: expressHandlebarsSections(),
+  }
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
@@ -56,7 +60,7 @@ app.use(function (req, res, next) {
 
 // ------Routes------
 route(app);
-/*-----End route----*/
+/*-----End routes----*/
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)

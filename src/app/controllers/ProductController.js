@@ -12,7 +12,7 @@ class ProductController {
         Product.find({})
             .then(products => { 
                 res.render('products/product', {
-                    layout: 'home-layout',
+                    layout: 'product-layout',
                     products: multipleMongooseToObject(products)
                 }); 
             })
@@ -25,7 +25,7 @@ class ProductController {
     //GET "/upload-page"
     show_upload(req, res, next) {
         res.render('products/upload', {
-            layout: 'upload-layout'
+            layout: 'product-layout'
         });
     }
 
@@ -34,7 +34,7 @@ class ProductController {
         Product.findOne({slug: req.params.slug})
             .then(product => {
                 res.render('products/update', {
-                    layout: 'upload-layout',
+                    layout: 'product-layout',
                     product: mongooseToObject(product)
                 });
             })
