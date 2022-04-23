@@ -5,8 +5,41 @@
             <div class="project">
                 <div class="card">
                     <div class="card-header ">
-                        <h3>All Customers</h3>
-                        <button> See All <span class="las la-arrow-right"></span></button>
+                        <h3>Admins</h3>
+
+                        <div class="">
+                            <div class="btn-group">
+                                <button 
+                                    class="btn btn-secondary dropdown-toggle" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                        Filter <span class="las la-arrow-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Male</a>
+                                    <a class="dropdown-item" href="#">Female</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button 
+                                    class="btn btn-secondary dropdown-toggle" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                        Sort <span class="las la-arrow-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Email</a>
+                                    <a class="dropdown-item" href="#">Name</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -19,44 +52,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr>
+                                    {{#each admin_profiles}}
+                                        <tr>
+                                            <td>
+                                                <a href="/dashboard-profiles/{{this.slug}}" style="font-weight: bold;">{{this.email}}</a>
+                                            </td>
+                                            <td>{{this.name}}</td>
+                                            <td>    
+                                                {{this.gender}}
+                                            </td>
+                                        </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>
@@ -64,96 +70,74 @@
 
                 </div>
 
-                {{!-- <div class="card">
+                <div class="card">
                     <div class="card-header ">
-                        <h3>New Customers </h3>
-                        <button> See All <span class="las la-arrow-right"></span></button>
+                        <h3>Customers</h3>
+                        
+                        <div class="">
+                            <div class="btn-group">
+                                <button 
+                                    class="btn btn-secondary dropdown-toggle" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                        Filter <span class="las la-arrow-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Male</a>
+                                    <a class="dropdown-item" href="#">Female</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button 
+                                    class="btn btn-secondary dropdown-toggle" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                        Sort <span class="las la-arrow-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Email</a>
+                                    <a class="dropdown-item" href="#">Name</a>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-body">
-                        <div class="customers"> 
-                            <div class="info">
-                                <img src="C:\Users\ACER\Downloads\BT03\19127322\19127322-Image\customer.jpg",width ="40px"
-                                height="40px" alt="">
-                                <div>
-                                    <h4>Bean </h4>
-                                    <small> New Customers</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-
-                            </div>
+                        <div class="table-responsive">
+                            <table width="100%"> 
+                                <thead> 
+                                    <tr>    
+                                        <td>Email </td>
+                                        <td>Name  </td>
+                                        <td>Gender </td>
+                                        <td>Option </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each customer_profiles}}
+                                        <tr>
+                                            <td>
+                                                <a href="/dashboard-profiles/{{this.slug}}" style="font-weight: bold;">{{this.email}}</a>
+                                            </td>
+                                            <td>{{this.name}}</td>
+                                            <td>    
+                                                {{this.gender}}
+                                            </td>
+                                            <td>
+                                                Ban
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
                         </div>
-
-                        <div class="customers"> 
-                            <div class="info">
-                                <img src="C:\Users\ACER\Downloads\BT03\19127322\19127322-Image\customer.jpg",width ="40px"
-                                height="40px" alt="">
-                                <div>
-                                    <h4>Bean </h4>
-                                    <small> New Customers</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-
-                            </div>
-                        </div>
-                        <div class="customers"> 
-                            <div class="info">
-                                <img src="C:\Users\ACER\Downloads\BT03\19127322\19127322-Image\customer.jpg",width ="40px"
-                                height="40px" alt="">
-                                <div>
-                                    <h4>Bean </h4>
-                                    <small> New Customers</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-
-                            </div>
-                        </div>
-                        <div class="customers"> 
-                            <div class="info">
-                                <img src="C:\Users\ACER\Downloads\BT03\19127322\19127322-Image\customer.jpg",width ="40px"
-                                height="40px" alt="">
-                                <div>
-                                    <h4>Bean </h4>
-                                    <small> New Customers</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-
-                            </div>
-                        </div>
-                        <div class="customers"> 
-                            <div class="info">
-                                <img src="C:\Users\ACER\Downloads\BT03\19127322\19127322-Image\customer.jpg",width ="40px"
-                                height="40px" alt="">
-                                <div>
-                                    <h4>Bean </h4>
-                                    <small> New Customers</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-
-                            </div>
-                        </div>
-
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </main>

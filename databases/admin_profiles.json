@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6263dfd343d293e1437b2470"
+  },
+  "email": "abc@gmail.com",
+  "name": "Lê Thái Phúc Bảo",
+  "birth": "19/07/2001",
+  "gender": "Male",
+  "phone": "0123456789",
+  "address": "227 Nguyen Van Cu",
+  "slug": "a-abc@gmail.com",
+  "image": "/images/19127337.jpg"
+},{
+  "_id": {
+    "$oid": "6263e0b843d293e1437b2471"
+  },
+  "email": "xyz@gmail.com",
+  "name": "Nguyễn Thị A",
+  "birth": "01/01/2001",
+  "gender": "Female",
+  "phone": "0123456788",
+  "address": "227 Nguyen Van Cu",
+  "slug": "a-xyz@gmail.com",
+  "image": ""
+}]

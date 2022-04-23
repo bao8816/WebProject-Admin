@@ -78,9 +78,7 @@
     display: flex;
     justify-content: space-between;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    
-    
-  }
+}
 .search-wrapper{
     border: 1px solid #ccc;
     border-radius: 30px;
@@ -250,6 +248,7 @@ a{
     text-decoration: none;
 }
 
+
 @media only screen and (max-width=1200px){
     .sidebar{
         width: 70px;
@@ -267,8 +266,5 @@ a{
     .main-content{
         margin-left: 70px;
     }
-    // .main-content header1{
-    //     width: calc(100% - 70px);
-    //     left: 70px;
-    // }
+   
 }

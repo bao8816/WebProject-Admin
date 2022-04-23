@@ -10,6 +10,7 @@ const Product = new Schema({
     image: String,
     price: Number,
     slug: { type: String, slug: 'name', unique: true },
+    category: String,
     },
     {
         timestamps: true

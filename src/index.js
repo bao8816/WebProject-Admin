@@ -6,7 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const expressHandlebarsSections = require('express-handlebars-sections');
 
-const MongoStore = require('connect-mongo');
+//const MongoStore = require('connect-mongo');
 
 
 const app = express();
@@ -20,6 +20,7 @@ const db = require('./config/db');
 
 //Connect to Database
 db.connect();
+//--------------------
 
 const port = 2000;
 
@@ -31,6 +32,8 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
+
+//--------Handlebars Middleware--------
 app.engine('hbs', exphbs.engine({
   extname: '.hbs',
   helpers: {
@@ -39,6 +42,7 @@ app.engine('hbs', exphbs.engine({
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
+//-------------------------------------
 
 //-------Passport Config-------
 app.use(session({
@@ -56,7 +60,7 @@ app.use(function (req, res, next) {
   next();
 }
 );
-
+//--------------------------------
 
 // ------Routes------
 route(app);
