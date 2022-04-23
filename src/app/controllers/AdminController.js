@@ -1,5 +1,4 @@
 const products = require('../models/Product');
-const { multipleMongooseToObject } = require('../../util/mongoose');
 const List_oders=require('../models/List_oder');
 class AdminController {    
     //GET "/"
@@ -19,8 +18,13 @@ class AdminController {
 
     show_order(req,res,next){
          
-        List_oders.find({})
-        .then(list_oders=>res.render('dashboard-order', {layout:'dashboard-layout'}))
+        List_oders.find({}).lean()
+        .then(list_oders=>
+            {
+                list_oders=list_oders.map(List_oders=>List_oders)
+                res.render('dashboard-order', {layout:'dashboard-layout',list_oders: list_oders})
+            })
+        
         .catch(next)          
       }
 };

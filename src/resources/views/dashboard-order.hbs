@@ -51,50 +51,21 @@
                             <table width="100%"> 
                                 <thead> 
                                     <tr>    
-                                        <td>Number </td>
-                                        <td>Name  </td>
-                                        <td>Gender </td>
+                                        <td>Customer </td>
+                                        <td> Burger </td>
+                                        <td>Price</td>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                   {{#each list_oders}}
                                     <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
+                                        <td>{{this.name}}</td>
+                                        <td>{{this.Burger}}</td>
                                         <td>    
-                                            Male
+                                            {{this.Price}}
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr> <tr>
-                                        <td>1</td>
-                                        <td>Oggy</td>
-                                        <td>    
-                                            Male
-                                        </td>
-                                    </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>
