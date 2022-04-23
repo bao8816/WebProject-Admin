@@ -9,9 +9,15 @@ const Admin_account = require('../app/models/Admin_account');
 
 passport.use(new LocalStrategy(function verify(username, password, cb) {
     Admin_account.findOne({ email: username }, function (err, user) {
-        if (err) { return cb(err); }
-        if (!user) { return cb(null, false); }
-        if (!bcrypt.compareSync(password, user.password)) { return cb(null, false); }
+        if (err) { 
+          return cb(err); 
+        }
+        if (!user) { 
+          return cb(null, false); 
+        }
+        if (!bcrypt.compareSync(password, user.password)) { 
+          return cb(null, false); 
+        }
         return cb(null, user);
     }
     );
@@ -35,9 +41,10 @@ passport.deserializeUser(function(user, cb) {
 // Route
 
 router.get('/login', authController.show_login);
+router.get('/login-error', authController.show_login_error);
 router.post('/login/password', passport.authenticate('local', {
       successRedirect: '/',
-      failureRedirect: '/login',
+      failureRedirect: '/login-error',
     }));
 
 router.get('/logout', authController.logout);

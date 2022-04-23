@@ -1,4 +1,5 @@
 const Admin_account = require('../models/Admin_account');
+const Admin_profile = require('../models/Admin_profile');
 const bcrypt = require('bcryptjs');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
@@ -6,6 +7,13 @@ class AuthController {
     show_login(req, res) {
         res.render('login', {layout: 'iden-layout'})
 
+    }
+
+    show_login_error(req, res) {
+        res.render('login', {
+            layout: 'iden-layout',
+            error: 'Email or password is incorrect!'
+        })
     }
 
     show_signup(req, res) {
@@ -42,6 +50,16 @@ class AuthController {
                         .catch(err => {
                             next(err);
                         })
+
+                    const newProfile = new Admin_profile({
+                        email: username,
+                        name: '',
+                        birth: '',
+                        gender: '',
+                        phone: '',
+                        address: ''
+                    });
+                    newProfile.save()
                 })
             })
     }

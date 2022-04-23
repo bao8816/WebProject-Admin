@@ -39,6 +39,10 @@
   padding-left: 1rem;
 }
 
+.sidebar-brand a {
+  color: white;
+}
+
 .sidebar-menu {
   margin-top: 1rem;
 }
@@ -271,6 +275,10 @@ td .status {
   display: inline-block;
   margin-left: 0.5rem;
   color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
 }
 
 @media only screen and (max-width = 1200px) {
