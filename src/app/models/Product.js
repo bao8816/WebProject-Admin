@@ -11,6 +11,8 @@ const Product = new Schema({
     price: Number,
     slug: { type: String, slug: 'name', unique: true },
     category: String,
+    inventory: Number,
+    sold: Number,
     },
     {
         timestamps: true
