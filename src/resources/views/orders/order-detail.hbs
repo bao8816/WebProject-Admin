@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="card-detail mt-50 mb-50">
+        
+        <div class="main"> <span id="sub-title">
+                <p><b>{{order.email}}</b></p>
+            </span>
+            {{#each order.products}}
+            <div class="row row-main">
+                <div class="col-3"> <img class="img-fluid" src="{{this.product_id.image}}"> </div>
+                <div class="col-6">
+                    <div class="row d-flex">
+                        <p><b>
+                            <a href="/product/{{this.product_id.slug}}">
+                                {{this.product_id.name}}
+                            </a>                                              
+                        </b></p>
+                    </div>
+                    <div class="row d-flex">
+                        <p class="text-muted">Quantity: {{this.quantity}}</p>
+                    </div>
+                </div>
+                <div class="col-3 d-flex justify-content-end">
+                    <p><b>{{this.product_id.price}}$</b></p>
+                </div>
+            </div>
+            {{/each}}
+            <hr>
+            <div class="total">
+                <div class="row">
+                    <div class="col"> <b> Total:</b> </div>
+                    <div class="col d-flex justify-content-end"> <b>{{order.price}}$</b> </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

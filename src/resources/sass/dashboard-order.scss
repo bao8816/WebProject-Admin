@@ -51,7 +51,7 @@
     color: rgb(82, 99, 104);
     font-size: 2rem;
 }
-.sidebar-menu a.active2{
+.sidebar-menu a.active{
     background:#fff;
     padding-top:1rem;
     padding-bottom: 1rem;
@@ -65,11 +65,8 @@
 
 .main-content{
     margin-left: 345px;
-    
 }
-.header1 h2{
-    color:#555;
-}
+
 #myDIV {
     padding: 1rem;
     background-color:#FFFFFF;
@@ -125,28 +122,7 @@
     grid-template-columns: auto auto auto auto;
     grid-gap: 1.5rem;
 }
-.card-single{
-    display: flex;
-    justify-content: space-between;
-    background:rgb(184, 180, 180);
-    padding: 2rem;
-    border-radius: 2px ;
-}
-.card-single div:last-child span{
-    font-size: 3rem;
-    color:var(--main-color)
-}
-.card-single div:first-child span{
-    color:var(--text-grey)
-}
-.card-single:last-child{
-    background:rgb(167, 70, 102);
-}
-.card-single:last-child h1,
-.card-single:last-child div:first-child span,
-.card-single :last-child div:first-child span{
-    color:#fff;
-}
+
 .project{
     margin-top: 3.5rem;
     display: grid;
@@ -191,7 +167,7 @@ thead tr{
 thead td {
     font-weight: 700;
 }
- td{
+td{
     padding: .5rem 1rem;
     font-size: .9rem;
     color: #222;
@@ -215,36 +191,96 @@ td .status{
     width: 100%;
     overflow-x: auto;
 }
-.customers{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5rem .7rem;
-}
-.info{
-    display: flex ;
-    align-items: center;
-}
-.info img{
-     border-radius: 50%;
-     margin-right: 1rem;
 
+#myDIV h2 {
+    margin-left: 20%;
 }
-.info h4{
-    font-size: .8rem;
-    font-weight: 700;
-    color: #222;
+
+a{
+    text-decoration: none;
 }
-.info small{
-    font-weight: 600;
-    color:var(--text-grey);
+
+.sidebar .sidebar-brand a {
+    color: white;
 }
-.contact span{
-    font-size: 1.2rem;
-    display: inline-block;
-    margin-left: .5rem;
-    color: var(--main-color);
+
+// detail page
+
+.card-detail {
+    margin: auto;
+    width: 500px;
+    max-width: 600px;
+    border-radius: 20px
 }
+
+.mt-50 {
+    margin-top: 50px
+}
+
+.mb-50 {
+    margin-bottom: 50px
+}
+
+@media(max-width:767px) {
+    .card-detail {
+        width: 80%
+    }
+}
+
+@media(height:1366px) {
+    .card-detail {
+        width: 75%
+    }
+}
+
+
+
+.main {
+    padding: 0 2rem
+}
+
+.main img {
+    border-radius: 7px
+}
+
+.main p {
+    margin-bottom: 0;
+    font-size: 0.75rem
+}
+
+#sub-title p {
+    margin: 1vh 0 2vh 0;
+    font-size: 1rem
+}
+
+.row-main {
+    padding: 1.5vh 0;
+    align-items: center
+}
+
+hr {
+    margin: 1rem -1vh;
+    border-top: 1px solid rgb(214, 214, 214)
+}
+
+.total {
+    font-size: 1rem
+}
+
+@media(height: 1366px) {
+    .main p {
+        margin-bottom: 0;
+        font-size: 1.2rem
+    }
+
+    .total {
+        font-size: 1.5rem
+    }
+}
+
+
+//------------------------
+
 @media only screen and (max-width=1600px){
     .sidebar{
         width: 70px;

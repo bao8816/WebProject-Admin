@@ -6,7 +6,38 @@
                 <div class="card">
                     <div class="card-header ">
                         <h3>All Orders</h3>
-                        <button> See All <span class="las la-arrow-right"></span></button>
+
+                        <div class="">
+                            <div class="btn-group">
+                                <button 
+                                    class="btn btn-secondary dropdown-toggle" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                        Filter {{!-- <span class="las la-arrow-down"></span> --}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Burger</a>
+                                    <a class="dropdown-item" href="#">Drink</a>
+                                    <a class="dropdown-item" href="#">Side dish</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button 
+                                    class="btn btn-secondary dropdown-toggle" 
+                                    type="button" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                        Sort {{!-- <span class="las la-arrow-down"></span> --}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Date</a>
+                                    <a class="dropdown-item" href="#">Price</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -14,9 +45,10 @@
                                 <thead> 
                                     <tr>    
                                         <td> Customer </td>
-                                        <td> Product </td>
+                                        <td> Date </td>
                                         <td> Price </td>
                                         <td> Status </td>
+                                        <td></td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -25,7 +57,7 @@
                                         <td>{{this.email}}</td>
                                         <td style="white-space: pre-line;">
                                             {{#each products}}                                   
-                                                {{this.product_id}}                                         
+                                                {{this.createdAt}}                                         
                                             {{/each}}
                                         </td>
                                         <td>    
@@ -38,6 +70,9 @@
                                                 Not Complete
                                             {{/if}}
                                             
+                                        </td>
+                                        <td>
+                                            <a href="/dashboard-order/{{this._id}}"> Details </a>
                                         </td>
                                     </tr>
                                     {{/each}}

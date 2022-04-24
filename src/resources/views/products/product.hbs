@@ -6,11 +6,40 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>All Products</h3>
-                        <div>
+                        <div class="">
                           <button onclick="window.location.href='/product/upload-page'" type="button"> Add Product <span class="las la-plus"></span> 
                           </button>
-                          <button> Filter <span class="las la-arrow-down"></span></button>
+                          <div class="btn-group">
+                              <button 
+                                  class="btn btn-secondary dropdown-toggle" 
+                                  type="button" 
+                                  data-bs-toggle="dropdown" 
+                                  aria-haspopup="true" 
+                                  aria-expanded="false">
+                                      Filter {{!-- <span class="las la-arrow-down"></span> --}}
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Burger</a>
+                                  <a class="dropdown-item" href="#">Drink</a>
+                                  <a class="dropdown-item" href="#">Side dish</a>
+                              </div>
+                          </div>
+                          <div class="btn-group">
+                              <button 
+                                  class="btn btn-secondary dropdown-toggle" 
+                                  type="button" 
+                                  data-bs-toggle="dropdown" 
+                                  aria-haspopup="true" 
+                                  aria-expanded="false">
+                                      Sort {{!-- <span class="las la-arrow-down"></span> --}}
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Date</a>
+                                  <a class="dropdown-item" href="#">Price</a>
+                              </div>
+                          </div>
                         </div>
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
+const Admin_account = require('../models/Admin_account');
 mongoose.plugin(slug);
 
 const Schema = mongoose.Schema;
 
 const Admin_profile = new Schema({
-    email: {type: String, required: true},
+    email: {type: String, required: true, ref: 'Admin_account'},
     name: String,
     birth: String,
     gender: String,
