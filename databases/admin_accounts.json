@@ -3,8 +3,13 @@
     "$oid": "625ad6bec995daa061f3cbc9"
   },
   "email": "xyz@gmail.com",
-  "password": "$2a$10$F/PtFS2kvAkAO1Pzv/HiR.IB2/qZ0flwWQjxT5VpxhvhrE8UC2ANm",
-  "__v": 0
+  "password": "$2a$10$lwwoDgKqVVC8SdxULakCLeDCgDpGrs3bWOVn07JhjHvsmQwGd6/Fi",
+  "__v": 0,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1650877931480"
+    }
+  }
 },{
   "_id": {
     "$oid": "625ec99d00ec1ecd230da1d5"

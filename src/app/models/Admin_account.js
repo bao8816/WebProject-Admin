@@ -6,9 +6,8 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const Admin_account = new Schema({
     email: {type: String,required: true},
     password: {type: String,required: true},
-    },
-    { 
-        timestamps: true 
+    createdAt: {type: Date, default: Date.now, select: false},
+    updatedAt: {type: Date, default: Date.now, select: false},
     }
 );
 
@@ -26,5 +25,6 @@ var options = {
 };
 
 Admin_account.plugin(passportLocalMongoose, options);
+
 
 module.exports = mongoose.model('Admin_account', Admin_account);

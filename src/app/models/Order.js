@@ -11,11 +11,24 @@ const Order = new Schema({
     ],
     price: { type: Number },
     status: { type: Boolean, require: true },
-    },
-    { 
-        timestamps: true 
+    createdAt: {type: Date, default: Date.now, select: false},
+    updatedAt: {type: Date, default: Date.now, select: false},
     }
 );
+
+Order.pre('save', function(next) {
+    this.price = this.products.reduce((acc, cur) => {
+        return acc + cur.product_id.price * cur.quantity;
+    }, 0);
+    next();
+});
+
+Order.pre('update', function(next) {
+    this.price = this.products.reduce((acc, cur) => {
+        return acc + cur.product_id.price * cur.quantity;
+    }, 0);
+    next();
+});
 
 module.exports = mongoose.model('Order', Order);
  

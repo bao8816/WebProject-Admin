@@ -13,9 +13,8 @@ const Customer_profile = new Schema({
     address: String,
     slug: { type: String, slug: 'email', unique: true },
     image: String,
-    },
-    { 
-        timestamps: true 
+    createdAt: {type: Date, default: Date.now, select: false},
+    updatedAt: {type: Date, default: Date.now, select: false},
     }
 );
 

@@ -30,6 +30,19 @@
                     <div class="col"> <b> Total:</b> </div>
                     <div class="col d-flex justify-content-end"> <b>{{order.price}}$</b> </div>
                 </div> 
+
+                <div class="row">
+                    <div class="col"> <b> Status:</b> </div>
+                    {{#if order.status}}
+                    <div class="col d-flex justify-content-end"> <b>Complete</b> </div>
+                    {{else}}
+                    <div class="col d-flex justify-content-end"> <b>Pending</b> </div>
+                    {{/if}}
+                </div>
+                
+                <form action="/dashboard-order/{{order._id}}?_method=PUT" method="POST" name="hidden-edit-status-form">
+                    <button class="btn btn-secondary" id="{{order._id}}" type="submit">Change status</button>
+                </form>
             </div>
         </div>
     </div>

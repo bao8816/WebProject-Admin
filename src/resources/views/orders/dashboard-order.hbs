@@ -55,10 +55,8 @@
                                    {{#each orders}}
                                     <tr>
                                         <td>{{this.email}}</td>
-                                        <td style="white-space: pre-line;">
-                                            {{#each products}}                                   
-                                                {{this.createdAt}}                                         
-                                            {{/each}}
+                                        <td>
+                                            {{this.updatedAt}}
                                         </td>
                                         <td>    
                                             {{this.price}}$
@@ -67,7 +65,7 @@
                                             {{#if this.status}}
                                                 Complete
                                             {{else}}
-                                                Not Complete
+                                                Pending
                                             {{/if}}
                                             
                                         </td>

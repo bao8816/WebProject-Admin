@@ -49,6 +49,30 @@ class OrderController {
         }
     }
 
+    //PUT "/dashboard-order/[order-id]/edit-status"
+    edit_status(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Order.findOne({_id: req.params.id})
+                .then(order => {
+                    if (order.status === true) {
+                        order.status = false;
+                    }
+                    else {
+                        order.status = true;
+                    }
+                    order.save()
+                        .then(() => {
+                            res.redirect('/dashboard-order');
+                        })
+                        .catch(next);
+                })
+        }
+    }
+
+
 }
 
 module.exports = new OrderController;

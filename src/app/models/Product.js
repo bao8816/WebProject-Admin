@@ -13,9 +13,8 @@ const Product = new Schema({
     category: String,
     inventory: Number,
     sold: Number,
-    },
-    {
-        timestamps: true
+    createdAt: {type: Date, default: Date.now, select: false},
+    updatedAt: {type: Date, default: Date.now, select: false},
     }
 );
 

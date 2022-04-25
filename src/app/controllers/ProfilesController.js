@@ -34,7 +34,7 @@ class ProfileController {
             res.redirect('/login');
         }
         else{
-            Admin_profile.findOne({slug: req.params.slug})
+            Admin_profile.findOne({email: req.params.slug})
                 .then(admin_profile => {
                     res.render('profiles/profile-detail', {
                         layout: 'profiles-layout',
@@ -44,7 +44,7 @@ class ProfileController {
                 })
                 .catch(next);
             
-            Customer_profile.findOne({slug: req.params.slug})
+            Customer_profile.findOne({email: req.params.slug})
                 .then(customer_profile => {
                     res.render('profiles/profile-detail', {
                         layout: 'profiles-layout',
