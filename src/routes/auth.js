@@ -52,6 +52,9 @@ router.get('/logout', authController.logout);
 router.get('/signup', authController.show_signup);
 router.post('/signup', authController.signup);
 
+router.get('/information', authController.show_information_form);
+router.put('/information', authController.information);
+
 
 
 module.exports = router;

@@ -2,6 +2,7 @@ const Admin_account = require('../models/Admin_account');
 const Admin_profile = require('../models/Admin_profile');
 const bcrypt = require('bcryptjs');
 const { multipleMongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 
 class AuthController {
     show_login(req, res) {
@@ -45,24 +46,50 @@ class AuthController {
                     });
                     newUser.save()
                         .then(() => {
-                            res.redirect('/login');
+                            res.redirect('/information');
                         })
                         .catch(err => {
                             next(err);
                         })
 
-                    const newProfile = new Admin_profile({
-                        email: username,
-                        name: '',
-                        birth: '',
-                        gender: '',
-                        phone: '',
-                        address: ''
-                    });
-                    newProfile.save()
+                    // const newProfile = new Admin_profile({
+                    //     email: username,
+                    //     name: '',
+                    //     birth: '',
+                    //     gender: '',
+                    //     phone: '',
+                    //     address: ''
+                    // });
+                    // newProfile.save()
                 })
             })
     }
+
+    //GET '/information'
+    show_information_form(req, res) {
+        res.render('information-form', {layout: 'iden-layout'})
+    }
+
+    //PUT '/information'
+    information(req, res, next) {
+        const newProfile = new Admin_profile({
+            email: req.body.email,
+            name: req.body.name,
+            birth: req.body.birth,
+            gender: req.body.gender,
+            phone: req.body.phone,
+            address: req.body.address,
+            image: req.body.image,
+        })
+        newProfile.save()
+            .then(() => {
+                res.redirect('/login');
+            })
+            .catch(err => {
+                next(err);
+            })
+        }
+
 }
 
 module.exports = new AuthController

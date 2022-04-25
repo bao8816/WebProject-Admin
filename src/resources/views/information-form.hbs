@@ -1,0 +1,32 @@
+<div class="main-content">
+   <main>
+      
+      <div class="recent-flex">
+         <div class="project">
+            <form action="/information?_method=PUT" method="POST">
+                <label for="email"> Email </label>
+                <input id="email" name="email" type="text" class="box" required>
+
+                <label for="name"> Name </label>
+                <input id="name" name="name" type="text" class="box" required>
+                
+                <label for="birth"> Date of birth </label>
+                <input id="birth" name="birth" type="text" class="box">
+                
+                <label for="gender"> Gender </label>
+                <input id="gender" name="gender" type="text" class="box">
+                
+                <label for="phone"> Phone number </label>
+                <input id="phone" name="phone" type="text" class="box">
+                
+                <label for="address"> Address </label>
+                <input id="address" name="address" type="text" class="box">
+                
+                <label for="image"> Image </label>
+                <input value="{{profile.image}}" id="image" name="image" type="text" placeholder="Change from [{{profile.image}}] to ..." class="box">
+                <button type="submit" class="btn">Submit</button>
+            </form>
+         </div>
+      </div>
+   </main>
+</div>

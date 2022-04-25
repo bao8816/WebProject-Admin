@@ -105,6 +105,111 @@ class ProductController {
                 .catch(next);
         }
     }
+
+    //GET "/product/date-sort"
+    date_sort(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Product.find({})
+                .sort({createdAt: -1})
+                .then(products => {
+                    res.render('products/product', {
+                        layout: 'product-layout',
+                        products: multipleMongooseToObject(products)
+                    });
+                })
+                .catch(next);
+        }
+    }
+
+    //GET "/product/price-sort"
+    price_sort(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Product.find({})
+                .sort({price: 1})
+                .then(products => {
+                    res.render('products/product', {
+                        layout: 'product-layout',
+                        products: multipleMongooseToObject(products)
+                    });
+                })
+                .catch(next);
+        }
+    }
+
+    //GET "/product/name-sort"
+    name_sort(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Product.find({})
+                .sort({name: 1})
+                .then(products => {
+                    res.render('products/product', {
+                        layout: 'product-layout',
+                        products: multipleMongooseToObject(products)
+                    });
+                })
+                .catch(next);
+        }
+    }
+
+    //GET "/product/burger-filter"
+    burger_filter(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Product.find({category: 'burger'})
+                .then(products => {
+                    res.render('products/product', {
+                        layout: 'product-layout',
+                        products: multipleMongooseToObject(products)
+                    });
+                })
+                .catch(next);
+        }
+    }
+
+    //GET "/product/drink-filter"
+    drink_filter(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Product.find({category: 'drink'})
+                .then(products => {
+                    res.render('products/product', {
+                        layout: 'product-layout',
+                        products: multipleMongooseToObject(products)
+                    });
+                })
+                .catch(next);
+        }
+    }
+
+    //GET "/product/snack-filter"
+    snack_filter(req, res, next) {
+        if(!req.user) {
+            res.redirect('/login');
+        }
+        else {
+            Product.find({category: 'snack'})
+                .then(products => {
+                    res.render('products/product', {
+                        layout: 'product-layout',
+                        products: multipleMongooseToObject(products)
+                    });
+                })
+                .catch(next);
+        }
+    }
 };
 
 module.exports = new ProductController();
