@@ -11,8 +11,8 @@ const Order = new Schema({
     ],
     price: { type: Number },
     status: { type: Boolean, require: true },
-    createdAt: {type: Date, default: Date.now, select: false},
-    updatedAt: {type: Date, default: Date.now, select: false},
+    createdAt: {type: Date, default: Date.now},
+    updatedAt: {type: Date, default: Date.now},
     }
 );
 

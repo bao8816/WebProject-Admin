@@ -6,8 +6,8 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const Admin_account = new Schema({
     email: {type: String,required: true},
     password: {type: String,required: true},
-    createdAt: {type: Date, default: Date.now, select: false},
-    updatedAt: {type: Date, default: Date.now, select: false},
+    createdAt: {type: Date, default: Date.now},
+    updatedAt: {type: Date, default: Date.now},
     }
 );
 
