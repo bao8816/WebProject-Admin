@@ -5,11 +5,22 @@
       <div class="recent-flex">
          <div class="project">
             <form action="/product/{{product._id}}?_method=PUT" method="POST">
+               <label for="name"> Product name </label>
                <input value="{{product.name}}" id="name" name="name" type="text" placeholder="Change from [{{product.name}}] to ..." class="box">
+               
+               <label for="descrition"> Description </label>
                <input value="{{product.description}}" id="description" name="description" type="text" placeholder="Change from [{{product.description}}] to ..." class="box">
+               
+               <label for="image"> Image </label>
                <input value="{{product.image}}" id="image" name="image" type="text" placeholder="Change from [{{product.image}}] to ..." class="box">
+               
+               <label for="price"> Price </label>
                <input value="{{product.price}}" id="price" name="price" type="text" placeholder="Change from [{{product.price}}] to ..." class="box">
+               
+               <label for="category"> Category </label>
                <input value="{{product.category}}" id="category" name="category" type="text" placeholder="Change from [{{product.category}}] to ..." class="box">
+               
+               <label for="inventory"> Inventory number </label>
                <input value="{{product.inventory}}" id="inventory" name="inventory" type="text" placeholder="Change from [{{product.inventory}}] to ..." class="box">
                <button type="submit" class="btn">Update</button>
             </form>

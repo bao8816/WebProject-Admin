@@ -138,7 +138,6 @@
 
 .project {
   margin-top: 3.5rem;
-  display: grid;
   grid-gap: 2rem;
   grid-template-columns: 65% auto;
 }
@@ -256,6 +255,47 @@ button {
 
 button:hover, a:hover {
   opacity: 0.7;
+}
+
+.project form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: rgb(204, 202, 202);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.project form label {
+  font-weight: bold;
+}
+
+.project form .box {
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  color: black;
+  background: white;
+  border: 0.2rem solid rgba(255, 255, 255, 0.3);
+  text-transform: none;
+  width: 100%;
+  margin: 0.7rem 0;
+}
+
+.project form .box:focus {
+  border-color: black;
+}
+
+.project form .btn {
+  background: white;
+  max-width: 20%;
+  margin: auto;
+}
+
+.project form .btn:hover {
+  background: var(--main-color);
 }
 
 @media only screen and (max-width = 1200px) {

@@ -2,11 +2,13 @@
 <div class="main-content">
     <h1>Log In</h1>
     <form method="POST" action="/login/password">
-        <label for="email"><b>Email</b></label>
+        <label for="username"><b>Email</b></label>
         <input id="username" type="email" placeholder="Enter Email" name="username" class="box" required>
     
-        <label for="psw"><b>Password</b></label>
-        <input id="current-password" type="password" placeholder="Enter Password" name="password" class="box" required>
+        <label for="current-password"><b>Password</b></label>
+        <input id="current-password" type="password" placeholder="Enter Password" name="password" class="box psw" required>
+
+        <input type="checkbox" onclick="showPass()">Show password
     
         <p class="error">{{error}}</p>
         <button type="submit" class="btn">Log In</button>
@@ -16,3 +18,14 @@
         </div>
     </form>
 </div>
+
+<script>
+    function showPass() {
+    var x = document.getElementById("current-password");
+    if (x.type == "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script>
