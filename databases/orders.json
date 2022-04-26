@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "6264f79a1ff8ab1d484d38b5"
+  },
+  "email": "loichuanhuynh@gmail.com",
+  "products": [
+    {
+      "product_id": "6249523c93593192db6e344f",
+      "quantity": 2
+    },
+    {
+      "product_id": "6249623493593192db6e3452",
+      "quantity": 3
+    }
+  ],
+  "price": 3,
+  "status": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1650893078609"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1650953390917"
+    }
+  }
+}]
