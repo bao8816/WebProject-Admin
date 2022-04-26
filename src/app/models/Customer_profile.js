@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const mongooseAlgolia = require('mongoose-algolia');
-const config = require('../config/index.js');
+const config = require('../../config/index.js');
 
 mongoose.plugin(slug);
 
