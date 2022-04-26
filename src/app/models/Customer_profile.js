@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const mongooseAlgolia = require('mongoose-algolia');
+const config = require('../config');
 
 mongoose.plugin(slug);
 
@@ -21,8 +22,8 @@ const Customer_profile = new Schema({
 );
 
 Customer_profile.plugin(mongooseAlgolia, {
-    appId: 'VV3TFI93CX',
-    apiKey: '4a0d45969d3b5e8f7f0866e1f4ba7fee',
+    appId: config.APP_ID,
+    apiKey: config.API_KEY,
     indexName: 'customer_profiles',
     selector: '-author',
 });

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const mongooseAlgolia = require('mongoose-algolia');
+const config = require('../config');
+
 mongoose.plugin(slug);
 
 const Schema = mongoose.Schema;
@@ -21,8 +23,8 @@ const Product = new Schema({
 
 
 Product.plugin(mongooseAlgolia, {
-    appId: 'VV3TFI93CX',
-    apiKey: '4a0d45969d3b5e8f7f0866e1f4ba7fee', 
+    appId: config.APP_ID,
+    apiKey: config.API_KEY,
     indexName: 'products',
     selector: '-author',
 });

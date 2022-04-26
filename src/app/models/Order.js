@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongooseAlgolia = require('mongoose-algolia');
+const config = require('../config');
 
 const Order = new Schema({
     email: {type: String, required: true, unique: true, ref: 'Customer_profile'},
@@ -32,8 +33,8 @@ Order.pre('update', function(next) {
 });
 
 Order.plugin(mongooseAlgolia, {
-    appId: 'VV3TFI93CX',
-    apiKey: '4a0d45969d3b5e8f7f0866e1f4ba7fee',
+    appId: config.APP_ID,
+    apiKey: config.API_KEY,
     indexName: 'orders',
     selector: '-author',
     populate: {

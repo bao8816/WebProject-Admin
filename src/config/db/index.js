@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const config = require('../../config');
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb+srv://nile1087:nile19072001@cluster0.teu64.mongodb.net/web_project?retryWrites=true&w=majority', {
+        await mongoose.connect(config.MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
