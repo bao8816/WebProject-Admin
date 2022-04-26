@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const session = require('express-session');
 const expressHandlebarsSections = require('express-handlebars-sections');
+const config = require('./config/index');
 
 //const MongoStore = require('connect-mongo');
 
@@ -22,7 +23,7 @@ const db = require('./config/db');
 db.connect();
 //--------------------
 
-const port = 2000;
+const port = 2000 || config.PORT;
 
 app.use(methodOverride('_method'));
 
