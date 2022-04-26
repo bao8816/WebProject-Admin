@@ -122,7 +122,7 @@
 }
 .cards {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
     grid-gap: 1.5rem;
 }
 .card-single{
@@ -131,6 +131,8 @@
     background:rgb(184, 180, 180);
     padding: 2rem;
     border-radius: 2px ;
+    width: 400px;
+    margin: auto;
 }
 .card-single div:last-child span{
     font-size: 3rem;

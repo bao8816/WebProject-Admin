@@ -265,6 +265,11 @@ main img {
   background: var(--main-color);
 }
 
+.project form .error {
+  color: red;
+  font-size: bold;
+}
+
 @media only screen and (max-width = 1200px) {
   .sidebar {
     width: 70px;

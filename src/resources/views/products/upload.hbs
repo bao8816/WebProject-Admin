@@ -3,11 +3,11 @@
    <main>
       <div class="recent-flex">
          <div class="project">
-            <form action="/product/upload" method="POST">
-               <input id="name" name="name" type="text" placeholder="product's name" class="box">
+            <form action="/product/upload" method="POST" onsubmit="return error()">
+               <input id="name" name="name" type="text" placeholder="product's name" class="box" required>
                <input id="description" name="description" type="text" class="box" placeholder="product's description">
                <input id="image" name="image" type="text" placeholder="product's image" class="box">
-               <input id="price" name="price" type="text" placeholder="price" class="box">
+               <input id="price" name="price" type="text" placeholder="price" class="box" required>
                <input id="category" name="category" type="text" placeholder="category" class="box">
                <input id="inventory" name="inventory" type="text" placeholder="inventory" class="box">
                <button type="submit" class="btn">UPLOAD</button>
@@ -16,3 +16,30 @@
       </div>
    </main>
 </div>
+
+<script>
+   function error(){
+      var price = document.getElementById('price').value;
+      var inventory = document.getElementById('inventory').value;
+
+      if (price < 0) {
+         document.getElementsByClassName('price_error')[0].innerHTML = 'Price must be greater than 0';
+         return false;
+      }
+
+      if (isNaN(price)) {
+         document.getElementsByClassName('price_error')[0].innerHTML = 'Price must be a number';
+         return false;
+      }
+      if (inventory < 0) {
+         document.getElementsByClassName('inventory_error')[0].innerHTML = 'Inventory must be greater than 0';
+         return false;
+      }
+
+      if (isNaN(inventory)) {
+         document.getElementsByClassName('inventory_error')[0].innerHTML = 'Inventory must be a number';
+         return false;
+      }
+      
+   }
+</script>

@@ -4,7 +4,7 @@
         <div class="cards">
             <div class="card-single">
                 <div>
-                    <h1>54</h1>
+                    <h1>{{count_profile}}</h1>
                     <span>Customers</span>
                 </div>
                 <div>
@@ -14,7 +14,7 @@
 
             <div class="card-single">
                 <div>
-                    <h1>117</h1>
+                    <h1>{{count_order}}</h1>
                     <span>Orders</span>
                 </div>
                 <div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="card-single">
+            {{!-- <div class="card-single">
                 <div>
                     <h1>54</h1>
                     <span>Contact Customers</span>
@@ -30,9 +30,9 @@
                 <div>
                     <span  class="lar la-envelope"></span>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="card-single">
+            {{!-- <div class="card-single">
                 <div>
                     <h1>$14</h1>
                     <span>Income</span>
@@ -40,7 +40,7 @@
                 <div>
                     <span class="las la-wallet"></span>
                 </div>
-            </div>
+            </div> --}}
             
         </div>
 
@@ -49,7 +49,12 @@
                 <div class="card">
                     <div class="card-header ">
                         <h3>Recent Orders</h3>
-                        <button> See All <span class="las la-arrow-right"></span></button>
+                        {{#if user}}
+                            
+                        {{else}}
+                            <p>Log in to see details</p>
+                        {{/if}}
+                        {{!-- <button> See All <span class="las la-arrow-right"></span></button> --}}
                     </div>
 
                     <div class="card-body">
@@ -57,21 +62,34 @@
                             <table width="100%"> 
                                 <thead> 
                                     <tr>    
-                                        <td>Orders </td>
-                                        <td>Name  </td>
-                                        <td>Price </td>
+                                        <td> Customer </td>
+                                        <td> Date </td>
+                                        <td> Price </td>
+                                        <td> Status </td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Somethings</td>
-                                        <td>Somethings</td>
-                                        <td>    
-                                            <span class="las la-dollar-sign"></span>
-                                            17
-                                        </td>
-                                    </tr>
-                                    
+                                    {{#if user}}
+                                        {{#each orders}}
+                                        <tr>
+                                            <td>{{this.email}}</td>
+                                            <td>{{this.createdAt}}</td>
+                                            <td>    
+                                                {{this.price}}$
+                                            </td>
+                                            <td>{{this.status}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    {{else}}
+                                        <tr>
+                                            <td> Customer </td>
+                                            <td> Date </td>
+                                            <td>    
+                                                Price$
+                                            </td>
+                                            <td> Status </td>
+                                        </tr>
+                                    {{/if}}
                                 </tbody>
                             </table>
                         </div>
@@ -82,26 +100,51 @@
                 <div class="card">
                     <div class="card-header ">
                         <h3>New Customers </h3>
-                        <button> See All <span class="las la-arrow-right"></span></button>
+                        {{#if user}}
+                            
+                        {{else}}
+                            <p>Log in to see details</p>
+                        {{/if}}
+                        {{!-- <button> See All <span class="las la-arrow-right"></span></button> --}}
                     </div>
                     <div class="card-body">
-                        <div class="customers"> 
-                            <div class="info">
-                                <img src="images/customer.jpg",width ="40px"
-                                height="40px" alt="">
-                                <div>
-                                    <h4>Bean </h4>
-                                    <small> New Customers</small>
+                        {{#if user}}
+                            {{#each profiles}}
+                            <div class="customers"> 
+                                <div class="info">
+                                    <img src="{{this.image}}",width ="40px"
+                                    height="40px" alt="">
+                                    <div>
+                                        <h4> {{this.name}} </h4>
+                                        <small> New Customers </small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+
                                 </div>
                             </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
+                            {{/each}}
+                        {{else}}
+                            <div class="customers"> 
+                                <div class="info">
+                                    <img src="/images/customer.jpg",width ="40px"
+                                    height="40px" alt="">
+                                    <div>
+                                        <h4> Bean </h4>
+                                        <small> New Customers </small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
 
+                                </div>
                             </div>
-                        </div>
-
+                        {{/if}}
                        
                         </div>
                     </div>     
