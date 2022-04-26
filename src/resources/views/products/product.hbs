@@ -104,7 +104,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-delete-product" style="color: red;">Delete</button>
+        <button type="button" class="btn btn-primary" id="btn-delete-product" >Delete</button>
       </div>
     </div>
   </div>
@@ -113,3 +113,21 @@
 {{!-- Delete Product hidden form --}}
 
 <form name="delete-product-hidden-form" method="POST"></form>
+
+<script>
+   var productID
+   var deleteProductModal = document.getElementById('deleteProductModal')
+   var btnDeleteProduct = document.getElementById('btn-delete-product')
+   deleteProductModal.addEventListener('show.bs.modal', function (event) {
+      // Button that triggered the modal
+      var button = event.relatedTarget
+      // Extract info from data-bs-* attributes
+      productID = button.getAttribute('data-id')
+   })
+   
+   btnDeleteProduct.onclick = function () {
+      var form = document.forms['delete-product-hidden-form']
+      form.action = '/product/' + productID + '?_method=DELETE'
+      form.submit()
+   }
+</script>

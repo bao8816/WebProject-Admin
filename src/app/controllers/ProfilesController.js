@@ -44,14 +44,14 @@ class ProfileController {
                 })
                 .catch(next);
             
-            Customer_profile.findOne({email: req.params.slug})
-                .then(customer_profile => {
-                    res.render('profiles/profile-detail', {
-                        layout: 'profiles-layout',
-                        profile: mongooseToObject(customer_profile)
-                    });
-                })
-                .catch(next);
+            // Customer_profile.findOne({email: req.params.slug})
+            //     .then(customer_profile => {
+            //         res.render('profiles/profile-detail', {
+            //             layout: 'profiles-layout',
+            //             profile: mongooseToObject(customer_profile)
+            //         });
+            //     })
+            //     .catch(next);
         }
     }
 
