@@ -1,7 +1,7 @@
 const Product = require('../models/Product');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 const { mongooseToObject } = require('../../util/mongoose');
-const { clearConfigCache } = require('prettier');
+// const { clearConfigCache } = require('prettier');
 
 // url: /product
 
