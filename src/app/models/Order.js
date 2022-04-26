@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongooseAlgolia = require('mongoose-algolia');
-const config = require('../config/index.js');
+const config = require('../../config/index.js');
 
 const Order = new Schema({
     email: {type: String, required: true, unique: true, ref: 'Customer_profile'},
