@@ -6,6 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const expressHandlebarsSections = require('express-handlebars-sections');
 const config = require('./config/index');
+const process = require('process');
 
 //const MongoStore = require('connect-mongo');
 
@@ -23,7 +24,7 @@ const db = require('./config/db');
 db.connect();
 //--------------------
 
-const port = 2000 || config.PORT;
+const port = process.env.PORT || 2000;
 
 app.use(methodOverride('_method'));
 
