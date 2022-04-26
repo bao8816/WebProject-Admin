@@ -32,21 +32,21 @@ Order.pre('update', function(next) {
     next();
 });
 
-Order.plugin(mongooseAlgolia, {
-    appId: config.APP_ID,
-    apiKey: config.API_KEY,
-    indexName: 'orders',
-    selector: '-author',
-    populate: {
-        path: 'products.product_id',
-    },
-});
+// Order.plugin(mongooseAlgolia, {
+//     appId: config.APP_ID,
+//     apiKey: config.API_KEY,
+//     indexName: 'orders',
+//     selector: '-author',
+//     populate: {
+//         path: 'products.product_id',
+//     },
+// });
 
-const Model = mongoose.model('Order', Order);
-Model.SyncToAlgolia();
-Model.SetAlgoliaSettings({
-    searchableAttributes: ['email', 'products.product_id.name', 'products.product_id.category'],
-})
+// const Model = mongoose.model('Order', Order);
+// Model.SyncToAlgolia();
+// Model.SetAlgoliaSettings({
+//     searchableAttributes: ['email', 'products.product_id.name', 'products.product_id.category'],
+// })
 
 module.exports = mongoose.model('Order', Order);
  

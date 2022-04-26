@@ -21,17 +21,17 @@ const Customer_profile = new Schema({
     }
 );
 
-Customer_profile.plugin(mongooseAlgolia, {
-    appId: config.APP_ID,
-    apiKey: config.API_KEY,
-    indexName: 'customer_profiles',
-    selector: '-author',
-});
+// Customer_profile.plugin(mongooseAlgolia, {
+//     appId: config.APP_ID,
+//     apiKey: config.API_KEY,
+//     indexName: 'customer_profiles',
+//     selector: '-author',
+// });
 
-const Model = mongoose.model('Customer_profile', Customer_profile);
-Model.SyncToAlgolia();
-Model.SetAlgoliaSettings({
-    searchableAttributes: ['email', 'name', 'phone', 'address', 'gender'],
-})
+// const Model = mongoose.model('Customer_profile', Customer_profile);
+// Model.SyncToAlgolia();
+// Model.SetAlgoliaSettings({
+//     searchableAttributes: ['email', 'name', 'phone', 'address', 'gender'],
+// })
 
 module.exports = mongoose.model('Customer_profile', Customer_profile);

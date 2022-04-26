@@ -22,17 +22,17 @@ const Admin_profile = new Schema({
     }
 );
 
-Admin_profile.plugin(mongooseAlgolia, {
-    appId: config.APP_ID,
-    apiKey: config.API_KEY,
-    indexName: 'admin_profiles',
-    selector: '-author',
-});
+// Admin_profile.plugin(mongooseAlgolia, {
+//     appId: config.APP_ID,
+//     apiKey: config.API_KEY,
+//     indexName: 'admin_profiles',
+//     selector: '-author',
+// });
 
-const Model = mongoose.model('Admin_profile', Admin_profile);
-Model.SyncToAlgolia();
-Model.SetAlgoliaSettings({
-    searchableAttributes: ['email', 'name', 'phone', 'address', 'gender'],
-})
+// const Model = mongoose.model('Admin_profile', Admin_profile);
+// Model.SyncToAlgolia();
+// Model.SetAlgoliaSettings({
+//     searchableAttributes: ['email', 'name', 'phone', 'address', 'gender'],
+// })
 
 module.exports = mongoose.model('Admin_profile', Admin_profile);

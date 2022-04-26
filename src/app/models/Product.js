@@ -22,18 +22,18 @@ const Product = new Schema({
 );
 
 
-Product.plugin(mongooseAlgolia, {
-    appId: config.APP_ID,
-    apiKey: config.API_KEY,
-    indexName: 'products',
-    selector: '-author',
-});
+// Product.plugin(mongooseAlgolia, {
+//     appId: config.APP_ID,
+//     apiKey: config.API_KEY,
+//     indexName: 'products',
+//     selector: '-author',
+// });
 
-const Model = mongoose.model('Product', Product);
+// const Model = mongoose.model('Product', Product);
 
-Model.SyncToAlgolia();
-Model.SetAlgoliaSettings({
-    searchableAttributes: ['name', 'category'],
-})
+// Model.SyncToAlgolia();
+// Model.SetAlgoliaSettings({
+//     searchableAttributes: ['name', 'category'],
+// })
 
 module.exports = mongoose.model('Product', Product);
