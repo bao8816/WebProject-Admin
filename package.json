@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect ./src/index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon --inspect ./src/index.js",
     "sass": "sass --watch ./src/resources/sass/dashboard.scss:./src/public/css/dashboard.css ./src/resources/sass/iden.scss:./src/public/css/iden.css ./src/resources/sass/line-awesome.scss:./src/public/css/line-awesome.css ./src/resources/sass/dashboard-profiles.scss:./src/public/css/dashboard-profiles.css ./src/resources/sass/dashboard-order.scss:./src/public/css/dashboard-order.css ./src/resources/sass/dashboard-product.scss:./src/public/css/dashboard-product.css ./src/resources/sass/dashboard-profile.scss:./src/public/css/dashboard-profile.css",
     "prettier": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
