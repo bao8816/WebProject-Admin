@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const Admin_account = require('../models/Admin_account');
 const mongooseAlgolia = require('mongoose-algolia');
-const config = require('../config');
+const config = require('../config/index.js');
 
 mongoose.plugin(slug);
 
