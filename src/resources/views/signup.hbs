@@ -1,12 +1,15 @@
 
 <div class="main-content">
     <h1>Sign Up</h1>
-    <form method="POST" action="/signup">
+    <form method="POST" action="/signup" onsubmit="return error()">
         <label for="username"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" id="username" name="username" class="box" required>
+        <input type="email" placeholder="Enter Email" id="username" name="username" class="box">
+        <p class="error email-error"></p>
 
         <label for="new-password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" id ="new-password"  name="password" class="box psw" required>
+        <input type="password" placeholder="Enter Password" id ="new-password"  name="password" class="box psw">
+        <p>Length between 6-24 characters; at least one uppercase letter</p>
+        <p class="error password-error"></p>
 
         <input type="checkbox" onclick="showPass()">Show password
 
@@ -20,12 +23,44 @@
 </div>
 
 <script>
-    function showPass() {
+  function error() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('new-password').value;
+
+    const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const pass_regex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*(\S)\1)(?!.*è).{6,24}$");
+
+    if(username == '') {
+      document.getElementsByClassName('email-error').innerHTML = 'Email must be required';
+      return false;
+    }
+
+    if (!email_regex.test(username)) {
+      document.getElementsByClassName('email-error').innerHTML = 'Email must be valid';
+      return false;
+    }
+
+    if(password == '') {
+      document.getElementsByClassName('password-error').innerHTML = 'Password must be required';
+      return false;
+    }
+    
+    if (!pass_regex.test(password)) {
+      document.getElementsByClassName('password-error').innerHTML = 'Password must be valid';
+      return false;
+    }
+  }
+</script>
+
+<script>
+  function showPass() {
     var x = document.getElementById("new-password");
     if (x.type == "password") {
       x.type = "text";
     } else {
       x.type = "password";
     }
-  }
+  };
 </script>
+
+

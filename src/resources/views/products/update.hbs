@@ -40,23 +40,25 @@
       var inventory = document.getElementById('inventory').value;
 
       if (price < 0) {
-         document.getElementsByClassName('price_error')[0].innerHTML = 'Price must be greater than 0';
+         document.getElementsByClassName('price_error').innerHTML = 'Price must be greater than 0';
          return false;
       }
 
       if (isNaN(price)) {
-         document.getElementsByClassName('price_error')[0].innerHTML = 'Price must be a number';
+         document.getElementsByClassName('price_error').innerHTML = 'Price must be a number';
          return false;
       }
       if (inventory < 0) {
-         document.getElementsByClassName('inventory_error')[0].innerHTML = 'Inventory must be greater than 0';
+         document.getElementsByClassName('inventory_error').innerHTML = 'Inventory must be greater than 0';
          return false;
       }
 
       if (isNaN(inventory)) {
-         document.getElementsByClassName('inventory_error')[0].innerHTML = 'Inventory must be a number';
+         document.getElementsByClassName('inventory_error').innerHTML = 'Inventory must be a number';
          return false;
       }
+
+      return true;
       
    }
 </script>
