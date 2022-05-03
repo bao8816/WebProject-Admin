@@ -1,13 +1,13 @@
 
 <div class="main-content">
     <h1>Sign Up</h1>
-    <form method="POST" action="/signup" onsubmit="return error()">
+    <form method="POST" action="/signup" >
         <label for="username"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" id="username" name="username" class="box">
+        <input type="email" placeholder="Enter Email" id="username" name="username" class="box" required>
         <p class="error email-error"></p>
 
         <label for="new-password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" id ="new-password"  name="password" class="box psw">
+        <input type="password" placeholder="Enter Password" id ="new-password"  name="password" class="box psw" required>
         <p>Length between 6-24 characters; at least one uppercase letter</p>
         <p class="error password-error"></p>
 
@@ -23,31 +23,46 @@
 </div>
 
 <script>
-  function error() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('new-password').value;
+  const form = document.querySelector('form');
+  const email = document.querySelector('#username');
+  const password = document.querySelector('#new-password');
+  const emailError = document.querySelector('.email-error');
+  const passwordError = document.querySelector('.password-error');
 
+  form.onsubmit = function(e) {
+    e.preventDefault();
+    var emailValue = email.value;
+    var passwordValue = password.value;
     const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const pass_regex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*(\S)\1)(?!.*è).{6,24}$");
+    var err = false;
 
-    if(username == '') {
-      document.getElementsByClassName('email-error').innerHTML = 'Email must be required';
-      return false;
+    if (emailValue === '') {
+      emailError.innerHTML = 'Email is required';
+      err = true;
+    }
+    else if (!email_regex.test(emailValue)) {
+      emailError.innerHTML = 'Email is invalid';
+      err = true;
+    }
+    else {
+      emailError.innerHTML = '';
     }
 
-    if (!email_regex.test(username)) {
-      document.getElementsByClassName('email-error').innerHTML = 'Email must be valid';
-      return false;
+    if (passwordValue === '') {
+      passwordError.innerHTML = 'Password is required';
+      err = true;
+    }
+    else if (!pass_regex.test(passwordValue)) {
+      passwordError.innerHTML = 'Password is invalid';
+      err = true;
+    }
+    else {
+      passwordError.innerHTML = '';
     }
 
-    if(password == '') {
-      document.getElementsByClassName('password-error').innerHTML = 'Password must be required';
-      return false;
-    }
-    
-    if (!pass_regex.test(password)) {
-      document.getElementsByClassName('password-error').innerHTML = 'Password must be valid';
-      return false;
+    if (!err) {
+      form.submit();
     }
   }
 </script>
